@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 255367527a4f67147a92c351db6281d9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - chickenCoop: {fileID: 492951624680089543, guid: 5f6a16660853bdc428cd78250372d85f, type: 3}
+  - chickenPrefab: {fileID: 5874646446990068166, guid: 2e343c734bc2d1e448e9371a48a13b8e, type: 3}
+  - chickenSpawnPoint: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
