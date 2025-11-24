@@ -49,12 +49,16 @@ public class Chicken : MonoBehaviour
     private IEnumerator LayEggAfterDelay()
     {
         yield return new WaitForSeconds(timeToLayEgg);
-        if (eggPrefab != null) {
+        if (eggPrefab != null)
+        {
             Vector3 spawnPos = transform.position + eggOffset;
             Instantiate(eggPrefab, spawnPos, Quaternion.identity);
-            Debug.Log("Egg laid!");}
-        else {
-            Debug.LogWarning("Chicken has no eggPrefab assigned!");}
+            Debug.Log("Egg laid!");
+        }
+        else
+        {
+            Debug.LogWarning("Chicken has no eggPrefab assigned!");
+        }
     }
     public void MakeHungryAgain()
     {
