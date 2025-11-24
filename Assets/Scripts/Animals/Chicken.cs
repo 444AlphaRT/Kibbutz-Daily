@@ -5,10 +5,10 @@ public class Chicken : MonoBehaviour
 {
     [Header("Hunger")]
     public bool isHungry = true;
-    public float eatingTime = 1.5f;      
+    public float eatingTime = 1.5f;
 
     [Header("Eggs")]
-    public GameObject eggPrefab;       
+    public GameObject eggPrefab;
     public float timeToLayEgg = 3f;
     public Vector3 eggOffset = new Vector3(0f, -0.35f, 0f);
 
@@ -53,7 +53,7 @@ public class Chicken : MonoBehaviour
 
         Debug.Log("Chicken finished eating!");
 
-        
+
         StartCoroutine(LayEggAfterDelay());
     }
 
