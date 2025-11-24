@@ -35,7 +35,6 @@ public class CoopSpawner : MonoBehaviour
     private void HandleSpacePress()
     {
         if (chickenCoop == null) return;
-
         // First space: show coop
         if (!coopSpawned)
         {
@@ -49,29 +48,22 @@ public class CoopSpawner : MonoBehaviour
         if (chickenPrefab != null && currentChickens < maxChickens)
         {
             Vector3 basePos;
-
             if (chickenSpawnPoint != null)
                 basePos = chickenSpawnPoint.position;
             else
                 basePos = chickenCoop.transform.position + new Vector3(0.5f, 0f, 0.5f);
-
             //  NEW — different offset per chicken
             Vector3 offset = Vector3.zero;
-
             if (currentChickens == 0)
                 offset = new Vector3(-0.3f, 0f, 0f);
             else if (currentChickens == 1)
                 offset = new Vector3(0.6f, 0f, 0f);
             else if (currentChickens == 2)
                 offset = new Vector3(0f, 0.3f, 0f);
-
             Vector3 pos = basePos + offset;
-
             Instantiate(chickenPrefab, pos, chickenCoop.transform.rotation);
-
             currentChickens++;
             chickenSpawned = currentChickens >= maxChickens;
-
             Debug.Log($"Chicken spawned ({currentChickens}/{maxChickens})");
         }
         else

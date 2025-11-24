@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class Egg : MonoBehaviour
 {
     public static int totalEggsCollected = 0;

@@ -6,18 +6,13 @@ public class Chicken : MonoBehaviour
     [Header("Hunger")]
     public bool isHungry = true;
     public float eatingTime = 1.5f;
-
     [Header("Eggs")]
     public GameObject eggPrefab;
     public float timeToLayEgg = 3f;
     public Vector3 eggOffset = new Vector3(0f, -0.35f, 0f);
-
-
     private bool isEating = false;
-
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
-
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -26,7 +21,6 @@ public class Chicken : MonoBehaviour
             originalColor = spriteRenderer.color;
         }
     }
-
     private void OnMouseDown()
     {
         if (!isHungry || isEating)
@@ -34,7 +28,6 @@ public class Chicken : MonoBehaviour
 
         StartCoroutine(FeedRoutine());
     }
-
     private IEnumerator FeedRoutine()
     {
         isEating = true;
@@ -52,14 +45,10 @@ public class Chicken : MonoBehaviour
         isEating = false;
 
         Debug.Log("Chicken finished eating!");
-
-
         StartCoroutine(LayEggAfterDelay());
     }
-
-    private IEnumerator LayEggAfterDelay()
+      private IEnumerator LayEggAfterDelay()
     {
-
         yield return new WaitForSeconds(timeToLayEgg);
 
         if (eggPrefab != null)
@@ -73,12 +62,10 @@ public class Chicken : MonoBehaviour
             Debug.LogWarning("Chicken has no eggPrefab assigned!");
         }
     }
-
     public void MakeHungryAgain()
     {
         isHungry = true;
     }
-
     public bool IsFed()
     {
         return !isHungry;

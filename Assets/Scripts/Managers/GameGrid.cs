@@ -8,19 +8,14 @@ public class GameGrid : MonoBehaviour
     public GameObject grass;
     public GameObject currentGrind;
     public bool gotGrid;
-
     public GameObject hitted;
     public GameObject field;
-
     public bool creatingFields;
-
     public int maxFields = 4; 
     private RaycastHit _Hit;
     private List<Vector2Int> selectedCells = new List<Vector2Int>(); 
-
     public GoldSystem goldSystem;
     public int fieldsPrice = 5;   
-
     void Start()
     {
         for (int i = 0; i < columnLength * rowLength; i++)
@@ -37,7 +32,6 @@ public class GameGrid : MonoBehaviour
             Instantiate(grass, pos, Quaternion.identity);
         }
     }
-
     void Update()
     {
         if (!gotGrid)
@@ -97,23 +91,19 @@ public class GameGrid : MonoBehaviour
             }
         }
     }
-
     private Vector2Int WorldToGrid(Vector3 pos)
     {
         int col = Mathf.RoundToInt((pos.x - x_Space) / x_Space);
         int row = Mathf.RoundToInt((pos.z - z_Space) / z_Space);
         return new Vector2Int(col, row);
     }
-
     private bool IsSquare2x2(List<Vector2Int> cells)
     {
         if (cells.Count != 4) return false;
-
         int minX = cells[0].x;
         int maxX = cells[0].x;
         int minY = cells[0].y;
         int maxY = cells[0].y;
-
         for (int i = 1; i < cells.Count; i++)
         {
             Vector2Int c = cells[i];
@@ -122,10 +112,8 @@ public class GameGrid : MonoBehaviour
             if (c.y < minY) minY = c.y;
             if (c.y > maxY) maxY = c.y;
         }
-
         if (maxX - minX != 1) return false;
         if (maxY - minY != 1) return false;
-
         for (int x = minX; x <= maxX; x++)
         {
             for (int y = minY; y <= maxY; y++)
@@ -134,16 +122,13 @@ public class GameGrid : MonoBehaviour
                     return false;
             }
         }
-
         return true;
     }
-
     public void CreateFields()
     {
         creatingFields = true;
         selectedCells.Clear();
     }
-
     public void returnToNormality()
     {
         creatingFields = false;
